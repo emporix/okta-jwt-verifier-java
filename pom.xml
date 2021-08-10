@@ -23,17 +23,36 @@
         <version>19</version>
     </parent>
 
-    <groupId>com.okta.jwt</groupId>
+    <groupId>com.emporix.jwt</groupId>
     <artifactId>okta-jwt-verifier-parent</artifactId>
     <version>0.5.2-SNAPSHOT</version>
     <name>Okta JWT Verifier :: Parent</name>
     <packaging>pom</packaging>
+
+    <distributionManagement>
+        <repository>
+            <id>repository.saas-ag.com</id>
+            <url>s3://repository.saas-ag.com/release</url>
+        </repository>
+        <snapshotRepository>
+            <id>repository.saas-ag.com</id>
+            <url>s3://repository.saas-ag.com/snapshot</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <repositories>
+        <repository>
+            <id>repository.saas-ag.com</id>
+            <url>s3://repository.saas-ag.com/release</url>
+        </repository>
+    </repositories>
 
     <properties>
         <github.slug>okta/okta-jwt-verifier-java</github.slug>
         <okhttp.version>4.9.1</okhttp.version>
         <okta.commons.version>1.2.5</okta.commons.version>
         <jjwt.version>0.11.2</jjwt.version>
+        <maven-s3-wagon.version>1.2.1</maven-s3-wagon.version>
     </properties>
 
     <modules>
@@ -56,17 +75,17 @@
 
             <!-- project modules -->
             <dependency>
-                <groupId>com.okta.jwt</groupId>
+                <groupId>com.emporix.jwt</groupId>
                 <artifactId>okta-jwt-verifier</artifactId>
                 <version>0.5.2-SNAPSHOT</version>
             </dependency>
             <dependency>
-                <groupId>com.okta.jwt</groupId>
+                <groupId>com.emporix.jwt</groupId>
                 <artifactId>okta-jwt-verifier-impl</artifactId>
                 <version>0.5.2-SNAPSHOT</version>
             </dependency>
             <dependency>
-                <groupId>com.okta.jwt</groupId>
+                <groupId>com.emporix.jwt</groupId>
                 <artifactId>okta-jwt-verifier-integration-tests</artifactId>
                 <version>0.5.2-SNAPSHOT</version>
             </dependency>
@@ -104,6 +123,34 @@
         </dependencies>
     </dependencyManagement>
     <build>
+        <extensions>
+            <extension>
+                <groupId>org.kuali.maven.wagons</groupId>
+                <artifactId>maven-s3-wagon</artifactId>
+                <version>${maven-s3-wagon.version}</version>
+            </extension>
+        </extensions>
+
+        <plugins>
+            <plugin>
+                <groupId>org.sonatype.plugins</groupId>
+                <artifactId>nexus-staging-maven-plugin</artifactId>
+                <extensions>false</extensions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+
         <pluginManagement>
             <plugins>
                 <plugin>

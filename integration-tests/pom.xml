@@ -19,7 +19,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.okta.jwt</groupId>
+        <groupId>com.emporix.jwt</groupId>
         <artifactId>okta-jwt-verifier-parent</artifactId>
         <version>0.5.2-SNAPSHOT</version>
     </parent>
@@ -30,7 +30,7 @@
     <dependencies>
 
         <dependency>
-            <groupId>com.okta.jwt</groupId>
+            <groupId>com.emporix.jwt</groupId>
             <artifactId>okta-jwt-verifier-impl</artifactId>
         </dependency>
 

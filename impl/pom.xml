@@ -19,7 +19,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.okta.jwt</groupId>
+        <groupId>com.emporix.jwt</groupId>
         <artifactId>okta-jwt-verifier-parent</artifactId>
         <version>0.5.2-SNAPSHOT</version>
     </parent>
@@ -30,7 +30,7 @@
     <dependencies>
 
         <dependency>
-            <groupId>com.okta.jwt</groupId>
+            <groupId>com.emporix.jwt</groupId>
             <artifactId>okta-jwt-verifier</artifactId>
             <version>0.5.2-SNAPSHOT</version>
         </dependency>
@@ -140,6 +140,14 @@
                         <phase>verify</phase>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>8</source>
+                    <target>8</target>
+                </configuration>
             </plugin>
         </plugins>
     </build>

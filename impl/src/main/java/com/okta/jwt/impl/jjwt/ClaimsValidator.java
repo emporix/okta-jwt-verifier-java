@@ -68,4 +68,23 @@ interface ClaimsValidator {
             }
         }
     }
+
+    final class ContainsTenantClaimsValidator implements ClaimsValidator {
+
+        private final String expectedTenant;
+
+        ContainsTenantClaimsValidator(String expectedTenant) {
+            Assert.notNull(expectedTenant, "expectedTenant cannot be null");
+            this.expectedTenant = expectedTenant;
+        }
+
+        @Override
+        public void validateClaims(Jws<Claims> jws) {
+            Object actual = jws.getBody().get("tn");
+            if (!(actual instanceof Collection && ((Collection<?>) actual).contains(expectedTenant)
+                || actual instanceof String && actual.equals(expectedTenant))) {
+                throw new IncorrectClaimException(jws.getHeader(), jws.getBody(), "Claim `tn` was invalid, it did not contain the expected value of: "+ expectedTenant);
+            }
+        }
+    }
 }
