@@ -25,7 +25,7 @@
 
     <groupId>com.emporix.jwt</groupId>
     <artifactId>okta-jwt-verifier-parent</artifactId>
-    <version>0.5.2-SNAPSHOT</version>
+    <version>0.5.2</version>
     <name>Okta JWT Verifier :: Parent</name>
     <packaging>pom</packaging>
 
@@ -77,17 +77,17 @@
             <dependency>
                 <groupId>com.emporix.jwt</groupId>
                 <artifactId>okta-jwt-verifier</artifactId>
-                <version>0.5.2-SNAPSHOT</version>
+                <version>0.5.2</version>
             </dependency>
             <dependency>
                 <groupId>com.emporix.jwt</groupId>
                 <artifactId>okta-jwt-verifier-impl</artifactId>
-                <version>0.5.2-SNAPSHOT</version>
+                <version>0.5.2</version>
             </dependency>
             <dependency>
                 <groupId>com.emporix.jwt</groupId>
                 <artifactId>okta-jwt-verifier-integration-tests</artifactId>
-                <version>0.5.2-SNAPSHOT</version>
+                <version>0.5.2</version>
             </dependency>
 
             <dependency>
