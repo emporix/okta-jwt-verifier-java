@@ -36,6 +36,14 @@ public final class JwtVerifiers {
     private JwtVerifiers() {}
 
     /**
+     * Creates an instance of IdTokenTenantVerifier.Builder.
+     * @return an instance of IdTokenTenantVerifier.Builder
+     */
+    public static IdTokenTenantVerifier.Builder idTokenTenantVerifierBuilder() {
+        return loadService(IdTokenTenantVerifier.Builder.class);
+    }
+
+    /**
      * Creates an instance of IdTokenVerifier.Builder.
      * @return an instance of IdTokenVerifier.Builder
      */
