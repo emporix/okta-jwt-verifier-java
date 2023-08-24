@@ -18,9 +18,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.okta.jwt.examples</groupId>
+        <groupId>com.emporix.jwt.examples</groupId>
         <artifactId>okta-jwt-verifier-examples</artifactId>
-        <version>0.5.8-SNAPSHOT</version>
+        <version>0.5.8</version>
     </parent>
 
     <artifactId>okta-jwt-verifier-examples-quickstart</artifactId>
@@ -28,11 +28,11 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.okta.jwt</groupId>
+            <groupId>com.emporix.jwt</groupId>
             <artifactId>okta-jwt-verifier</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.okta.jwt</groupId>
+            <groupId>com.emporix.jwt</groupId>
             <artifactId>okta-jwt-verifier-impl</artifactId>
             <scope>runtime</scope>
         </dependency>
